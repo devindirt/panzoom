@@ -490,6 +490,7 @@ function createPanZoom(domElement, options) {
     owner.addEventListener('mousedown', onMouseDown, { passive: false });
     owner.addEventListener('dblclick', onDoubleClick, { passive: false });
     owner.addEventListener('touchstart', onTouch, { passive: false });
+    owner.addEventListener('touchmove', onTouchMove, { passive: false });
     owner.addEventListener('keydown', onKeyDown, { passive: false });
 
     // Need to listen on the owner container, so that we are not limited
@@ -505,6 +506,7 @@ function createPanZoom(domElement, options) {
     owner.removeEventListener('keydown', onKeyDown);
     owner.removeEventListener('dblclick', onDoubleClick);
     owner.removeEventListener('touchstart', onTouch);
+    owner.removeEventListener('touchmove', onTouchMove);
 
     if (frameAnimation) {
       window.cancelAnimationFrame(frameAnimation);
